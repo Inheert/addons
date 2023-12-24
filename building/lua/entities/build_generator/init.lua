@@ -30,12 +30,12 @@ function ENT:Think()
     local consumption = 0
     local capacity = self:GetCapacity()
     if (self.lastUpdate + CONFIG.timeConsumption <= now) then
-        print("Capacity (Watt):", capacity)
+        //print("Capacity (Watt):", capacity)
         for k, v in pairs(self.consumers) do
             if (v.parent == nil) then
                 v.parent = self
             end
-            print(IsValid(v) and v.parent == self and capacity > 0)
+            //print(IsValid(v) and v.parent == self and capacity > 0)
             if (IsValid(v) and v.parent == self and capacity > 0) then
                 consumption = v:GetConsumption()
                 capacity = math.Clamp(capacity - consumption, 0, capacity)
@@ -47,8 +47,8 @@ function ENT:Think()
                 v.parent = nil
             end
         end
-        print("Consommation (Watt):", consumption)
-        print("")
+        //print("Consommation (Watt):", consumption)
+        //print("")
         self:SetCapacity(capacity)
         self.lastUpdate = now
     end
