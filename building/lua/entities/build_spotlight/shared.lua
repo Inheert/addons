@@ -13,7 +13,7 @@ function ENT:SetupDataTables() 	-- Based on gmod_lamp lol
 	self:NetworkVar( "Float", 1, "Distance", { KeyName = "dist", Edit = { type = "Float", order = 4, min = 64, max = 2048, title = "Light Distance" } } )
 	self:NetworkVar( "Float", 2, "Brightness", { KeyName = "bright", Edit = { type = "Float", order = 5, min = 0, max = 8, title = "Light Brightness" } } )
 
-	if not SERVER then return end
+	if (not SERVER) then return end
 	self:NetworkVarNotify( "Enabled", self.OnUpdateLight )
 	self:NetworkVarNotify( "LightFOV", self.OnUpdateLight )
 	self:NetworkVarNotify( "Brightness", self.OnUpdateLight )

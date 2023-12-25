@@ -1,0 +1,1 @@
+include("autorun/sh_commands.lua")
